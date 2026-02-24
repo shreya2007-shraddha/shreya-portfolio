@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreya Gadge | Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#d63384;
+  --card:#ad1457;
+  --text:#ffffff;
+  --accent:#ff6f91;
+}
+
+[data-theme="light"]{
+  --bg:#ffe6f0;
+  --card:#ffffff;
+  --text:#000000;
+  --accent:#ff4d88;
+}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#d63384,#ad1457);
+  color:var(--text);
+  scroll-behavior:smooth;
+  transition:0.4s;
+  overflow-x:hidden;
+}
+
+/* Cursor Glow */
+.cursor-glow{
+  position:fixed;
+  width:250px;
+  height:250px;
+  background:radial-gradient(circle, rgba(255,111,145,0.35) 0%, transparent 70%);
+  border-radius:50%;
+  pointer-events:none;
+  transform:translate(-50%, -50%);
+  z-index:0;
+}
+
+/* Navbar */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  padding:15px 0;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(8px);
+  z-index:1000;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:var(--accent);
+}
+
+.nav-icons{
+  margin-left:20px;
+}
+
+.nav-icons a{
+  margin-left:10px;
+  font-size:18px;
+}
+
+/* Hero */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+
+.profile-wrapper{
+  position:relative;
+  width:200px;
+  height:200px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.profile-wrapper::before{
+  content:"";
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:3px solid var(--accent);
+  animation:rotate 10s linear infinite;
+}
+
+.hero img{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  object-fit:cover;
+  z-index:1;
+}
+
+.hero h1{
+  margin-top:20px;
+  font-size:2.4rem;
+}
+
+.hero p{
+  opacity:0.9;
+}
+
+/* Sections */
+section{
+  padding:80px 10%;
+  position:relative;
+  z-index:1;
+}
+
+.section-title{
+  font-size:1.8rem;
+  margin-bottom:25px;
+  border-left:4px solid var(--accent);
+  padding-left:10px;
+}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:8px;
+  margin-bottom:20px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  opacity:0.8;
+}
+
+/* Toggle */
+.toggle-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:none;
+  background:var(--accent);
+  color:white;
+  cursor:pointer;
+  z-index:1000;
+}
+
+/* Animation */
+@keyframes rotate{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor-glow" id="glow"></div>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+
+  <div class="nav-icons">
+    <a href="https://github.com/shreya2007-shraddha" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/uurs_shreyuu__" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:shreyagadge093@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</nav>
+
+<div class="hero" id="home">
+  <div class="profile-wrapper">
+    <img src="image/profile.jpeg" alt="Profile">
+  </div>
+  <h1>Shreya Gadge</h1>
+  <p>FY BSc IT Student | Web Developer | C++ Enthusiast</p>
+</div>
+
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <div class="card">
+    Passionate IT student skilled in C++, OOPS and Web Development.
+  </div>
+</section>
+
+<section id="education">
+  <h2 class="section-title">Education Timeline</h2>
+  <div id="timeline"></div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="card">
+    <h3>Car Rental System</h3>
+    <p>
+      Console-based application developed using C++ with OOPS and File Handling.
+      Manages vehicle booking, customer details and billing.
+    </p>
+    <a href="https://github.com/shreya2007-shraddha/Car-Rental-System"
+       target="_blank"
+       class="btn">
+       View Project
+    </a>
+  </div>
+</section>
+
+<button class="toggle-btn" onclick="toggleTheme()">
+  <i class="fas fa-moon" id="icon"></i>
+</button>
+
+<script>
+/* Cursor Glow */
+const glow=document.getElementById("glow");
+document.addEventListener("mousemove",(e)=>{
+  glow.style.left=e.clientX+"px";
+  glow.style.top=e.clientY+"px";
+});
+
+/* Dark Light Toggle */
+function toggleTheme(){
+  const body=document.body;
+  const icon=document.getElementById("icon");
+
+  if(body.getAttribute("data-theme")==="light"){
+    body.removeAttribute("data-theme");
+    icon.className="fas fa-moon";
+  }else{
+    body.setAttribute("data-theme","light");
+    icon.className="fas fa-sun";
+  }
+}
+
+/* JSON Education */
+const educationData=[
+{degree:"FY BSc IT", institute:"R.K.Telereja College", year:"2026 - Present"},
+{degree:"HSC", institute:"K.V.Pendarkar College", year:"2023 - 2025"},
+{degree:"SSC", institute:"Vikas Mandir School", year:"2022 - 2023"}
+];
+
+const timeline=document.getElementById("timeline");
+
+educationData.forEach(item=>{
+  timeline.innerHTML+=`
+  <div class="card">
+    <h3>${item.degree}</h3>
+    <p>${item.institute} | ${item.year}</p>
+  </div>`;
+});
+</script>
+
+</body>
+</html>
